@@ -18,7 +18,8 @@ int initTcpSocket(int *socket_fd, char *port, char *ip) {
     sockaddr.sin_addr.s_addr = inet_addr(ip);
 
     // 绑定sockaddr对象
-    bind(*socket_fd, (struct sockaddr *)&sockaddr, sizeof(sockaddr));
+    int ret_bind = bind(*socket_fd, (struct sockaddr *)&sockaddr, sizeof(sockaddr));
+   // printf("ret_bind = %d\n", ret_bind);
     // 监听socket对象
     listen(*socket_fd, 10);
     

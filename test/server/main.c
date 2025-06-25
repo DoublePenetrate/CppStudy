@@ -10,7 +10,7 @@ int main() {
     initPool(&pool, 10);
     // 初始化TCP SOCKET连接
     int socket_fd;
-    initTcpSocket(&socket_fd, "8080", "10.0.4.15");
+    initTcpSocket(&socket_fd, "8080", "124.221.209.216");
     //初始化epoll并添加epoll监听
     int epoll_fd = epoll_create(1);
     epollAdd(epoll_fd, socket_fd);

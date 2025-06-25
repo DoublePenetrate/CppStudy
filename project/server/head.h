@@ -13,6 +13,9 @@ typedef struct pool_s{
     pthread_mutex_t pool_lock;
     // 条件变量
     pthread_cond_t cond;
+    // 退出标记位
+    // 0 表示正常 1 表示退出
+    int exit_flag;
 }pool_t;
 
 // 根据指定数量创建线程池

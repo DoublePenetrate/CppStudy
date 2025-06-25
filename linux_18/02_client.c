@@ -1,11 +1,11 @@
-#include <func.h>
+#include <header.h>
 
 int main() {
     int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
     int reuse = 1;
     setsockopt(socket_fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
     char* port = "8080";
-    char* ip = "192.168.149.128";
+    char* ip = "10.0.4.15";
     struct sockaddr_in sockaddr;
     sockaddr.sin_family = AF_INET;
     sockaddr.sin_port = htons(atoi(port));

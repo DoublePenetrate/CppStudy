@@ -17,5 +17,7 @@ int initPool(pool_t *pool, int num) {
     pthread_mutex_init(&pool->pool_lock, NULL);
     // 初始化条件变量
     pthread_cond_init(&pool->cond, NULL);
+    // 初始化退出标记位
+    pool->exit_flag = 0;
     return 0;
 }

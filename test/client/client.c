@@ -2,7 +2,7 @@
 
 int main() {
     char *port = "8080";
-    char *ip = "10.0.4.15";
+    char *ip = "124.221.209.216";
 
     int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
 

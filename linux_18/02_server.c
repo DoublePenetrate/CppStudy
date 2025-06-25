@@ -1,4 +1,4 @@
-#include <func.h>
+#include <header.h>
 #include <time.h>
 typedef struct conn{
     int net_fd; // 某个客户端链接的socket对象的文件描述符
@@ -7,7 +7,7 @@ typedef struct conn{
 }conn_t;
 // 群聊服务端
 int main() {
-    char* ip = "192.168.149.128";
+    char* ip = "10.0.4.15";
     char* port = "8080";
     int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
     int reuse = 1;
