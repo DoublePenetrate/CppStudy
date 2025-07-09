@@ -7,17 +7,17 @@ using std::cin;
 class String
 {
 public:
-	String();
-	String(const char *pstr);
-	String(const String &rhs);
-	String &operator=(const String &rhs);
-	~String();
-	void print();
+    String();
+    String(const char *pstr);
+    String(const String &rhs);
+    String &operator=(const String &rhs);
+    ~String();
+    void print();
     size_t length() const;
     const char * c_str() const;
 
 private:
-	char * _pstr;
+    char * _pstr;
 };
 
 // String的无参构造
@@ -83,20 +83,20 @@ const char * String::c_str() const {
 
 int main()
 {
-	String str1;
-	str1.print();
+    String str1;
+    str1.print();
 
-	String str2 = "Hello,world";
-	String str3("wangdao");
+    String str2 = "Hello,world";
+    String str3("wangdao");
 
-	str2.print();
-	str3.print();
+    str2.print();
+    str3.print();
 
-	String str4 = str3;
-	str4.print();
+    String str4 = str3;
+    str4.print();
 
-	str4 = str2;
-	str4.print();
+    str4 = str2;
+    str4.print();
 
-	return 0;
+    return 0;
 }
