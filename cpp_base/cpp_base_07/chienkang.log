@@ -1,0 +1,12 @@
+2025-07-11 00:22:31,823 cate [FATAL] This is an emerg msg
+2025-07-11 00:22:31,823 cate [FATAL] This is a fatal msg
+2025-07-11 00:22:31,823 cate [ALERT] This is an alert msg
+2025-07-11 00:22:31,823 cate [CRIT] This is a crit msg
+2025-07-11 00:22:31,823 cate [ERROR] This is an error msg
+2025-07-11 00:22:31,823 cate [WARN] This is an warn msg
+2025-07-11 00:36:45,399 cate [FATAL] This is an emerg msg
+2025-07-11 00:36:45,399 cate [FATAL] This is a fatal msg
+2025-07-11 00:36:45,399 cate [ALERT] This is an alert msg
+2025-07-11 00:36:45,399 cate [CRIT] This is a crit msg
+2025-07-11 00:36:45,399 cate [ERROR] This is an error msg
+2025-07-11 00:36:45,399 cate [WARN] This is an warn msg
