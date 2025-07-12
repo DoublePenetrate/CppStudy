@@ -5,14 +5,32 @@
 #include <log4cpp/OstreamAppender.hh>
 #include <log4cpp/FileAppender.hh>
 #include <log4cpp/RollingFileAppender.hh>
+#include <string>
 using namespace log4cpp;
 using std::endl;
 using std::cout;
 using std::cin;
+using std::string;
+
+#define addPrefix(msg) string(" [ ").append(__FILE__).append(" : ").append(__func__).append(" : ")\
+        .append(std::to_string(__LINE__)).append(" ] ").append(msg).c_str()
+
+#define LogWarn(msg) Mylogger::getInstance()->warn(addPrefix(msg)) 
+#define LogEmerg(msg) Mylogger::getInstance()->emerg(addPrefix(msg)) 
+#define LogFatal(msg) Mylogger::getInstance()->fatal(addPrefix(msg)) 
+#define LogCrit(msg) Mylogger::getInstance()->crit(addPrefix(msg)) 
+#define LogAlert(msg) Mylogger::getInstance()->Alert(addPrefix(msg)) 
+#define LogError(msg) Mylogger::getInstance()->error(addPrefix(msg)) 
+#define LogNotice(msg) Mylogger::getInstance()->notice(addPrefix(msg)) 
+#define LogDebug(msg) Mylogger::getInstance()->debug(addPrefix(msg)) 
+#define LogInfo(msg) Mylogger::getInstance()->info(addPrefix(msg)) 
+
 /*能够输出到终端，还能保存到文件。让其使用起来更方便
  *要求：可以像printf一样
  *同时输出的日志信息中最好能有文件的名字，函数的名字及其所在的行号
  */
+
+
 class Mylogger
 {
 public:
@@ -110,24 +128,34 @@ void test0()
     //规范使用单例模式的写法
     Mylogger::getInstance()->info("The log is info message");
 }
-/*
-   void test1()
-   {
-   printf("hello,world\n");
-//第二步，像使用printf一样
-//只要求能输出纯字符串信息即可，不需要做到格式化输出
-LogInfo("The log is info message");
-LogError("The log is error message");
-LogWarn("The log is warn message");
-LogDebug("The log is debug message");
+
+void test1()
+{
+    printf("hello,world\n");
+    //第二步，像使用printf一样
+    //只要求能输出纯字符串信息即可，不需要做到格式化输出
+    LogInfo("The log is info message");
+    LogError("The log is error message");
+    LogWarn("The log is warn message");
+    LogDebug("The log is debug message");
 }
-*/
+
 //最终希望的效果
 //LogDebug("The log is debug message");
 //日期 记录器名字 [优先级] 文件名 函数名 行号 日志信息
 
+
+
+void test2() {
+    cout << addPrefix("This is a msg") << endl;
+}
+
+void test3() {
+    Mylogger::getInstance()->error(addPrefix("This is a arror msg"));
+}
+
 int main() {
-    test0();
+    test1();
     //    test1();
     return 0;
 }

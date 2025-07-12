@@ -1,0 +1,7 @@
+2025-07-12 01:52:52,296 mycat [ERROR] The log is error message
+2025-07-12 01:52:52,296 mycat [FATAL] The log is fatal message
+2025-07-12 01:52:52,296 mycat [CRIT] The log is crit message
+2025-07-12 09:23:49,384 mycat [ERROR]  [ 5.log4cpp_Single.cpp : test3 : 144 ] This is a arror msg
+2025-07-12 09:40:50,351 mycat [ERROR]  [ 5.log4cpp_Single.cpp : test3 : 154 ] This is a arror msg
+2025-07-12 09:41:24,262 mycat [ERROR]  [ 5.log4cpp_Single.cpp : test1 : 138 ] The log is error message
+2025-07-12 09:41:24,262 mycat [WARN]  [ 5.log4cpp_Single.cpp : test1 : 139 ] The log is warn message
