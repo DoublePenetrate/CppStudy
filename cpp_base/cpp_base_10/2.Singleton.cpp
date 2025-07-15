@@ -14,13 +14,13 @@ public:
         return _pInstance;
     }
 
-    static void destory() {
-        if (_pInstance) {
-            delete _pInstance;
-            _pInstance = nullptr;
-            cout << ">> delete heap" << endl;
-        }
-    }
+    /* static void destory() { */
+    /*     if (_pInstance) { */
+    /*         delete _pInstance; */
+    /*         _pInstance = nullptr; */
+    /*         cout << ">> delete heap" << endl; */
+    /*     } */
+    /* } */
 
     void init(int x, int y) {
         _ix = x;
