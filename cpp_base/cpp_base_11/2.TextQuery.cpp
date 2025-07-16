@@ -15,7 +15,6 @@ using std::cerr;
 using std::cout;
 
 
-
 class TextQuery
 {
 public:
@@ -28,37 +27,45 @@ public:
         }
         // read every line of the target file 
         // and store it in the vector<string> _lines
-        /* cout << "tag <<<<<<<" << endl; */
         string line;
-        int count_line = 0;
         while (getline(ifs, line)) {
-            // string line has stored the content of a line in aim file
-            /* cout << line << endl; */
+            // raw line has stored the content of a line in aim file
             _lines.push_back(line);
-            /* count_line++; */
-            /* cout << _lines[count_line - 1] << endl; */
+            // deal with the raw line 
+            dealLine(line);
             std::istringstream iss(line);
             string word;
             while (iss >> word) {
-                /* cout << word << endl; */
-                dealWord(word);
-                /* cout << word << ' '; */
-                if (word != string()) {
-                    _dict[word]++;
-                    _wordNumbers[word].insert(_lines.size() - 1);
-                }
+                _dict[word]++;
+                _wordNumbers[word].insert(_lines.size() - 1);
+            }
+        }
+        ifs.close();
+    }
+    
+    // 对一行字符串中的字符进行处理
+    // 非字符->' ', 大写字母字符->小写字母字符
+    void dealLine(string & line) {
+        for (auto & ch : line) {
+            if (!isalpha(ch)) {
+                ch = ' ';
+            } else if (isupper(ch)) {
+                ch = tolower(ch);
             }
         }
     }
 
+
     //查找单词
     void query(const string & word) {
+        cout << "------------------------" << endl;
         if (_dict[word]) {
             print_dict(word);
             print_lines(word);
-            return;
+        } else {
+            print_dict(word);    
         }
-        print_dict(word);    
+        cout << "------------------------" << endl;
     }
 
     // 输出行号和行信息
@@ -71,22 +78,22 @@ public:
         }
     }
 
-
     // 输出词频
     void print_dict(const string & word) {
         cout << word << " occurs " << _dict[word] << " times." << endl;
     }
+
     // 处理单词
-    void dealWord(string & word) {
-        auto it = word.begin();
-        while (it != word.end()){
-            if (!isalpha(*it)) {
-                it = word.erase(it);
-            } else {
-                it++;
-            }
-        }
-    }
+    /* void dealWord(string & word) { */
+    /*     auto it = word.begin(); */
+    /*     while (it != word.end()){ */
+    /*         if (!isalpha(*it)) { */
+    /*             it = word.erase(it); */
+    /*         } else { */
+    /*             it++; */
+    /*         } */
+    /*     } */
+    /* } */
 private:
     //把每一行的原始信息存储下来
     vector<string> _lines;
@@ -98,7 +105,7 @@ private:
 
 int main()
 {
-    string queryWord("Ahiezer");
+    string queryWord("ahiezer");
     TextQuery tq;
     tq.readFile("The_Holy_Bible.txt");
     tq.query(queryWord);
