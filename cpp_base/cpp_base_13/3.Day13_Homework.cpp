@@ -65,12 +65,17 @@ private:
 class Line 
 {
 public:
-    Line(Point & p1, Point & p2) 
-    : _p1(p1)
-    , _p2(p2)
+    Line(const Point & lhs, const Point & rhs) 
+    : _p1(lhs)
+    , _p2(rhs)
     {}
 
-    float get_length() {
+    Line(int x1, int y1, int x2, int y2) 
+    : _p1(x1, y1)
+    , _p2(x2, y2)
+    {}
+
+    float get_length() const {
         return sqrt(pow(_p1._ix - _p2._ix, 2) +  pow(_p1._iy - _p2._iy, 2));
     }
 private:
@@ -83,8 +88,17 @@ class Triangle
 , public Color
 {
 public:
-    Triangle(Point p1, Point p2, const char * color, float height)
+    Triangle(const Point & p1, const Point & p2, const char * color, float height)
     : Line(p1, p2)
+    , Color(color)
+    , _height(height)
+    {
+        cout << "Triangle(Point, Point, const char *, float)" << endl;
+    }
+
+    Triangle(int x1, int y1, int x2, int y2, 
+             const char * color, float height)
+    : Line(x1, y1, x2, y2)
     , Color(color)
     , _height(height)
     {
