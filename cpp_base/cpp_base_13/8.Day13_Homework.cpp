@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
-#define PI 3.14
+/* #define PI 3.14 */
 
 using std::cin;
 using std::endl;
@@ -58,7 +58,10 @@ public:
     virtual double getArea() const {
         return PI * _radius * _radius;
     }
+
 private:
+    // 将运行时常量转化为编译时常量
+    static constexpr double PI = 3.14;
     double _radius;
 };
 
@@ -98,6 +101,12 @@ void test() {
     cout << fi->getName() << " " << fi->getArea() << endl;
     fi = &tri;
     cout << fi->getName() << " " << fi->getArea() << endl;
+
+    cout << endl;
+
+    display(rec);
+    display(cir);
+    display(tri);
 }
 
 int main()
