@@ -5,7 +5,7 @@ using namespace std;
 using namespace tinyxml2;
 
 void test() {
-    XMLDocument doc = new XMLDocument();
+    XMLDocument doc;
     doc.LoadFile("testRSS.xml");
     if (doc.ErrorID()) {
         cerr << "LoadFile error" << endl;
