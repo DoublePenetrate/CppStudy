@@ -16,7 +16,10 @@ struct RssItem
 class RssReader
 {
 public:
-    RssReader();
+    RssReader() {
+
+    };
+
     void parseRss();//解析
     void dump(const string & filename);//输出
 private:
@@ -24,7 +27,7 @@ private:
  };   
 
 void RssReader::parseRss() {
-    XMLDocument doc = new XMLDocument();
+    XMLDocument doc;
     doc.LoadFile("coolshell.xml");
     if (doc.ErrorID()) {
         cerr << "LoadFile error" << endl;
