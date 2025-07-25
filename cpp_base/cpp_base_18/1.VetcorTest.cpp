@@ -43,7 +43,18 @@ void test() {
     // 5.使用大括号初始化vector    
     vector<int> vec4{9,8,7,6,5,4,3,2,1};
     display(vec4);
-        
+    
+    cout << "------------------------>" << endl;
+    // 在vector尾部进行插入删除
+    vec4.push_back(0);
+    vec4.push_back(-1);
+    display(vec4);
+    vec4.pop_back();
+    display(vec4);
+
+    cout << "------------------------>" << endl;
+    //vec4.push_front(10); // error
+
 }
 
 
