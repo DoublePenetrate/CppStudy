@@ -126,8 +126,13 @@ private:
 // emplace_back
 void test() {
     vector<Point> vec;
-    /* vec.push_back(Point(1, 3)); */
+    vec.reserve(5);
+    vec.push_back(Point(1, 3));
     cout << "---------------" << endl;
+    // emplace_back(Point(1, 3)) 会调用拷贝构造
+    // 是因为你手动创建了一个临时对象
+    // emplace_back 只是把它“拷贝”到容器里去；
+    // 要想避免拷贝，应该直接写 emplace_back(1, 3)
     vec.emplace_back(Point(1, 3));
     vec.emplace_back(2, 4);
 }
