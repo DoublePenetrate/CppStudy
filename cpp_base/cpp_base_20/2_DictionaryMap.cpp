@@ -60,7 +60,7 @@ void Dictionary::store(const string & filename) {
     ofs.close();
 }
 
-string dealWord(const string & word) {
+string Dictionary::dealWord(const string & word) {
     for (size_t idx = 0; idx != word.size(); idx++) {
         if (!isalpha(word[idx])) {
             return string();
