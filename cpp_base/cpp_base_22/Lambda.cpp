@@ -44,7 +44,7 @@ void test2() {
 
 }
 
-void test() {
+void test3() {
     string name = "Erenchan";
     int age = 22;
     
@@ -57,6 +57,23 @@ void test() {
         cout << "grade = " << grade << endl; 
     }(145);
 
+    cout << "name = " << name << endl; 
+    cout << "age = " << age << endl;
+}
+
+void test() {
+    string name = "Erenchan";
+    int age = 22;
+    
+    auto f = [&](int grade) {
+        age = 23; 
+        name = "Wanghaorong";
+        cout << "name = " << name << endl; 
+        cout << "age = " << age << endl;
+        cout << "grade = " << grade << endl; 
+    };
+
+    f(150);
     cout << "name = " << name << endl; 
     cout << "age = " << age << endl;
 
